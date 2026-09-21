@@ -2252,3 +2252,194 @@ button {
   }
 }
 
+/* ==========================================================================
+   TEAM SECTION — GROUP PHOTO + CULTURE STATS
+   ========================================================================== */
+
+.team-section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.team-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  opacity: 0.3;
+}
+
+.team-photo-block {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow:
+    0 0 0 1px rgba(0,229,255,0.06),
+    0 40px 80px rgba(0,0,0,0.6),
+    0 0 120px rgba(0,229,255,0.04);
+}
+
+.team-photo-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.team-photo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(0.92) saturate(1.05);
+  transition: filter 0.6s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.team-photo-frame:hover .team-photo-img {
+  filter: brightness(1) saturate(1.1);
+  transform: scale(1.012);
+}
+
+/* Gradient overlay at bottom of photo */
+.team-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(3, 4, 8, 0.75) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 28px 32px;
+  pointer-events: none;
+}
+
+.team-overlay-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 14, 24, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-medium);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  pointer-events: all;
+}
+
+.overlay-badge-icon {
+  font-size: 0.9rem;
+}
+
+/* Culture Stat Strip */
+.team-culture-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 0;
+  background: rgba(10, 14, 24, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 32px 40px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.culture-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 24px;
+  text-align: center;
+}
+
+.culture-num {
+  font-family: var(--font-main);
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 30%, var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.culture-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  max-width: 140px;
+  line-height: 1.4;
+}
+
+.culture-stat-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--border-subtle);
+  flex-shrink: 0;
+}
+
+/* Responsive — Team Section */
+@media (max-width: 768px) {
+  .team-section {
+    padding: 72px 0;
+  }
+
+  .team-photo-img {
+    max-height: 320px;
+  }
+
+  .team-culture-stats {
+    padding: 24px 16px;
+    gap: 4px;
+    justify-content: center;
+  }
+
+  .culture-stat {
+    padding: 12px 16px;
+    min-width: 120px;
+  }
+
+  .culture-stat-divider {
+    display: none;
+  }
+
+  .culture-num {
+    font-size: 1.6rem;
+  }
+
+  .team-overlay-badge {
+    font-size: 0.7rem;
+    padding: 6px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-culture-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .culture-stat {
+    width: 45%;
+  }
+}
+
